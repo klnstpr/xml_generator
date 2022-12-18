@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Aplikacja do generowania plików xml" />
+        <meta name="author" content="klnstpr" />
+        <title>XML Generator</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index">Strona główna</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                </div>
+            </div>
+        </nav>
+        <!-- Page Content-->
+        <section>
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5">
+                    <div class="col-lg-6">
+                        <h1 class="mt-5">XML Generator</h1>
+                        <p><b>Aplikacja generuje plik XML. Możesz wprowadzić liczbę obiektów, która ma zostać wygenerowana</b></p>
+                        <p>XML ma postać: </p>
+                            <p>&lt;users&gt;</p>
+                            <p>&lt;user&gt;</p>
+                        <p>&lt;name&gt;name1&lt;/name&gt;</p>
+                        <p>&lt;surname&gt;surname1&lt;/surname&gt;</p>
+                        <p>&lt;login&gt;login1&lt;/login&gt;</p>
+                            <p>&lt;/user&gt;</p>
+                        <p>...</p>
+                        <p>&lt;user&gt;</p>
+                        <p>&lt;name&gt;nameN&lt;/name&gt;</p>
+                        <p>&lt;surname&gt;surnameN&lt;/surname&gt;</p>
+                        <p>&lt;login&gt;loginN&lt;/login&gt;</p>
+                        <p>&lt;/user&gt;</p>
+                        <p>&lt;/users&gt;</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <p></p>
+        <div class="container">
+                <div class="row">
+                    <div class="col-25">
+                        <label for="XMLquantity">Ilość obiektów:</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="number" id="XMLquantity" placeholder="Wprowadź ile obiektów chcesz wygenerować">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <input type="submit" id="btn" value="Wygeneruj plik XML" onclick="downloadXML();">
+                </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script>
+        document.getElementById("btn").addEventListener("click", goToUrl);
+            function goToUrl()
+        {
+            window.location = '/download/' + document.getElementById('XMLquantity').value;
+        }
+        </script>
+
+        <style>
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #808080;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
+    </body>
+</html>
